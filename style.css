@@ -1,0 +1,91 @@
+:root {
+  --bright-red: #d42d2f;
+  --dark-green: #344d2f;
+  --gold: #fac57d;
+  --snow: #f0f4f7;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: var(--snow);
+  background: var(--bright-red) url("images/christmas-shopping.jpg") no-repeat
+    center/cover;
+}
+
+.container,
+.checklist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  background-color: rgba(212, 45, 47, 0.75);
+  padding: 1.5em 2.6em 3em;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.checklist {
+  position: relative;
+  background: var(--snow);
+  color: var(--dark-green);
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 5ch;
+  padding: 1em 2em;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.checklist-item {
+  margin: 0.5em;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  background-color: var(--gold);
+  width: 20px;
+  height: 20px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"]::before {
+  content: "🎁";
+  font-size: 20px;
+  background-color: var(--snow);
+  opacity: 0;
+  position: relative;
+  left: -2px;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+input + label {
+  margin-left: 7px;
+}
+
+input[type="checkbox"]:checked + label.strikethrough span {
+  text-decoration: line-through;
+  font-weight: normal;
+}
